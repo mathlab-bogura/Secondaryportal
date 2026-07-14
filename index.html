@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MATH LAB | গণিত হোক আনন্দের</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #1B365D;   
+            --accent: #E53E3E;    
+            --bg-light: #F7FAFC;  
+            --text: #2D3748;
+            --white: #FFFFFF;
+            --nav-bg: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body { 
+            color: var(--text); 
+            background-color: var(--bg-light); 
+            line-height: 1.6; 
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* নোটিশ বার */
+        .notice-bar {
+            width: 100%; 
+            background: #c0392b; 
+            padding: 10px; 
+            overflow: hidden; 
+            white-space: nowrap; 
+            box-sizing: border-box; 
+            color: white; 
+            font-weight: bold;
+        }
+
+        /* নেভিগেশন বার */
+        .navbar { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            padding: 15px 5%; 
+            background-color: var(--nav-bg); 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05); 
+            border-bottom: 1px solid #E2E8F0; 
+        }
+        
+        /* আপনার অরিজিনাল লোগো ডিজাইন */
+        .logo a { text-decoration: none; }
+        .logo-text { font-size: 26px; font-weight: 800; color: var(--primary); letter-spacing: 1.5px; display: flex; align-items: center; gap: 5px; }
+        .logo-text i { font-size: 22px; color: var(--accent); }
+        .logo-accent { color: var(--accent); border-bottom: 3px solid var(--primary); padding-bottom: 2px; }
+        
+        /* মেনু বাটন স্টাইল */
+        .nav-links { display: flex; list-style: none; gap: 15px; }
+        .nav-links a {
+            text-decoration: none;
+            padding: 8px 20px;
+            border-radius: 8px;
+            color: var(--primary);
+            font-weight: 600;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+        .nav-links a:hover {
+            border: 2px solid var(--primary);
+            background-color: rgba(27, 54, 93, 0.05);
+        }
+        .nav-links .highlight-btn {
+            background-color: var(--accent);
+            color: var(--white);
+        }
+        .nav-links .highlight-btn:hover {
+            background-color: #c53030;
+            border: 2px solid transparent;
+        }
+
+        /* হিরো ব্যানার */
+        .hero { 
+            padding: 60px 20px; 
+            background: linear-gradient(rgba(27, 54, 93, 0.9), rgba(27, 54, 93, 0.95)), url('https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover; 
+            text-align: center; 
+            color: var(--white); 
+        }
+        .hero h1 { font-size: 36px; margin-bottom: 10px; font-weight: 700; }
+        .hero p { font-size: 18px; max-width: 600px; margin: 0 auto; color: #E2E8F0; }
+
+        /* মূল পোর্টাল বাটন/কার্ড গ্রিড */
+        .portal-container {
+            flex-grow: 1;
+            padding: 50px 5%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .action-card {
+            background-color: var(--white);
+            border-radius: 15px;
+            padding: 40px 20px;
+            width: 300px;
+            text-align: center;
+            text-decoration: none;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            border: 1px solid #E2E8F0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .action-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            border-color: var(--primary);
+        }
+
+        .action-card::before {
+            content: '';
+            position: absolute;
+            top: -100%;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(27, 54, 93, 0.03);
+            transition: top 0.4s ease;
+            z-index: 0;
+        }
+        .action-card:hover::before { top: 0; }
+
+        .card-icon {
+            font-size: 50px;
+            color: var(--accent);
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .card-title {
+            font-size: 22px;
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .card-desc {
+            font-size: 15px;
+            color: #666;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ফুটার এবং কপিরাইট */
+        .footer { 
+            text-align: center; 
+            font-size: 15px; 
+            color: var(--primary); 
+            padding: 25px; 
+            font-weight: bold; 
+            border-top: 1px solid #E2E8F0; 
+            background-color: var(--white); 
+        }
+
+        /* মোবাইল রেসপন্সিভ ডিজাইন */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .portal-container { padding: 30px 5%; }
+            .action-card { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="notice-bar">
+        <marquee id="scrolling-notice" scrollamount="6">লোড হচ্ছে...</marquee>
+    </div>
+
+    <nav class="navbar">
+        <div class="logo">
+            <a href="#">
+                <span class="logo-text"><i class="fas fa-compass"></i> MATH <span class="logo-accent">LAB</span></span>
+            </a>
+        </div>
+        
+        <ul class="nav-links">
+            <li><a href="https://mathlab-bogura.github.io/Job/">Job Portal</a></li>
+            <li><a href="https://mathlab-bogura.github.io/Resultinput/">Result Input</a></li>
+            <li><a href="https://mathlab-bogura.github.io/Seatplan/" class="highlight-btn">Seatplan Search</a></li>
+        </ul>
+    </nav>
+
+    <div class="hero">
+        <h1>গণিত হোক আনন্দের</h1>
+        <p>আপনার প্রয়োজনীয় সকল চাকরি, রেজাল্ট এবং আসন বিন্যাসের তথ্য এখন এক ক্লিকেই।</p>
+    </div>
+
+    <div class="portal-container">
+        
+        <a href="https://mathlab-bogura.github.io/Seatplan/" class="action-card">
+            <i class="fa-solid fa-chair card-icon"></i>
+            <h2 class="card-title">Seatplan</h2>
+            <p class="card-desc">যেকোনো পরীক্ষার সিট প্ল্যান ও কেন্দ্রের বিস্তারিত ঠিকানা ম্যাপসহ খুঁজুন।</p>
+        </a>
+
+        <a href="https://mathlab-bogura.github.io/Job/" class="action-card">
+            <i class="fa-solid fa-briefcase card-icon"></i>
+            <h2 class="card-title">Job Portal</h2>
+            <p class="card-desc">সর্বশেষ সরকারি ও বেসরকারি চাকরির খবর এবং নিয়োগ বিজ্ঞপ্তি দেখুন।</p>
+        </a>
+
+        <a href="https://mathlab-bogura.github.io/Resultinput/" class="action-card">
+            <i class="fa-solid fa-square-poll-vertical card-icon"></i>
+            <h2 class="card-title">Result Input</h2>
+            <p class="card-desc">পরীক্ষার ফলাফল সহজে ইনপুট করুন এবং নির্ভুলভাবে ডাটা সংরক্ষণ করুন।</p>
+        </a>
+
+    </div>
+
+    <div class="footer">
+        © 2026 মেধা স্বত্ব: Mahmudul Hasan
+    </div>
+
+    <script>
+        const url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTTK5qG19U2iuZbDZh-zeLqstVPZEC5yS5zbwXGRXFteE5Atks5EKqS1wrg2dVwBSPNbGCBl6QHIeOl/pub?gid=0&single=true&output=csv';
+
+        fetch(url + '&t=' + new Date().getTime())
+            .then(response => response.text())
+            .then(data => {
+                let lines = data.split(/\r?\n/);
+                if (lines[0].trim() !== "") {
+                    document.getElementById('scrolling-notice').innerText = lines[0];
+                } else {
+                    document.getElementById('scrolling-notice').innerText = "আপাতত কোনো নতুন নোটিশ নেই।";
+                }
+            })
+            .catch(() => {
+                document.getElementById('scrolling-notice').innerText = "নোটিশ আপডেট করতে সমস্যা হচ্ছে।";
+            });
+    </script>
+</body>
+</html>
