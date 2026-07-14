@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MATH LAB | গণিত হোক আনন্দের</title>
+    <!-- ফন্ট অসাম আইকন লিঙ্ক -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
@@ -66,15 +67,16 @@
         .logo-accent { color: var(--accent); border-bottom: 3px solid var(--primary); padding-bottom: 2px; }
         
         /* মেনু বাটন স্টাইল */
-        .nav-links { display: flex; list-style: none; gap: 15px; }
+        .nav-links { display: flex; list-style: none; gap: 10px; flex-wrap: wrap; justify-content: center; }
         .nav-links a {
             text-decoration: none;
-            padding: 8px 20px;
+            padding: 8px 15px;
             border-radius: 8px;
             color: var(--primary);
             font-weight: 600;
             border: 2px solid transparent;
             transition: all 0.3s ease;
+            white-space: nowrap;
         }
         .nav-links a:hover {
             border: 2px solid var(--primary);
@@ -99,24 +101,23 @@
         .hero h1 { font-size: 36px; margin-bottom: 10px; font-weight: 700; }
         .hero p { font-size: 18px; max-width: 600px; margin: 0 auto; color: #E2E8F0; }
 
-        /* মূল পোর্টাল বাটন/কার্ড গ্রিড */
-       .portal-container {
-     flex-grow: 1;
-     padding: 30px 5%; /* গ্যাপ কমানোর জন্য প্যাডিং কমানো হয়েছে */
-      display: flex;
-     justify-content: center;
-     align-items: flex-start; /* কার্ডগুলোকে উপরে রাখার জন্য */
-     align-content: flex-start;
-     gap: 30px;
-     flex-wrap: wrap;
-      }
-        
+        /* মূল পোর্টাল বাটন/কার্ড গ্রিড (গ্যাপ ফিক্স সহ) */
+        .portal-container {
+            flex-grow: 1;
+            padding: 40px 5%; /* গ্যাপ কমানো হয়েছে */
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* কার্ডগুলোকে উপরের দিকে রাখার জন্য */
+            align-content: flex-start;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
 
         .action-card {
             background-color: var(--white);
             border-radius: 15px;
             padding: 40px 20px;
-            width: 300px;
+            width: 280px; /* কার্ডের সাইজ একটু অ্যাডজাস্ট করা হয়েছে যাতে ৪টা সুন্দরভাবে বসে */
             text-align: center;
             text-decoration: none;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
@@ -178,22 +179,27 @@
             font-weight: bold; 
             border-top: 1px solid #E2E8F0; 
             background-color: var(--white); 
+            margin-top: auto;
         }
 
         /* মোবাইল রেসপন্সিভ ডিজাইন */
-        @media (max-width: 768px) {
+        @media (max-width: 900px) {
             .nav-links { display: none; }
             .portal-container { padding: 30px 5%; }
-            .action-card { width: 100%; }
+            .action-card { width: 100%; max-width: 350px; }
+            .navbar { flex-direction: column; gap: 15px; }
+            .logo { margin-bottom: 10px; }
         }
     </style>
 </head>
 <body>
 
+    <!-- নোটিশ বার -->
     <div class="notice-bar">
         <marquee id="scrolling-notice" scrollamount="6">লোড হচ্ছে...</marquee>
     </div>
 
+    <!-- নেভিগেশন বার ও লোগো -->
     <nav class="navbar">
         <div class="logo">
             <a href="#">
@@ -202,35 +208,34 @@
         </div>
         
         <ul class="nav-links">
+            <!-- নতুন Math লিঙ্ক যুক্ত করা হয়েছে -->
+            <li><a href="https://mathlab-bogura.github.io/Math/">Math</a></li>
             <li><a href="https://mathlab-bogura.github.io/Job/">Job Portal</a></li>
             <li><a href="https://mathlab-bogura.github.io/Resultinput/">Result Input</a></li>
             <li><a href="https://mathlab-bogura.github.io/Seatplan/" class="highlight-btn">Seatplan Search</a></li>
-       <!-- নতুন Math কার্ড -->
-        <a href="https://mathlab-bogura.github.io/Math/" class="action-card">
-            <i class="fa-solid fa-calculator card-icon"></i>
-            <h2 class="card-title">Math</h2>
-            <p class="card-desc">গণিতের বিভিন্ন সমস্যা, শর্টকাট টেকনিক ও প্র্যাকটিস ম্যাটেরিয়াল।</p>
-        </a>
         </ul>
     </nav>
 
+    <!-- হিরো ব্যানার -->
     <div class="hero">
         <h1>গণিত হোক আনন্দের</h1>
         <p>আপনার প্রয়োজনীয় সকল চাকরি, রেজাল্ট এবং আসন বিন্যাসের তথ্য এখন এক ক্লিকেই।</p>
     </div>
 
+    <!-- মূল পোর্টাল বাটনসমূহ -->
     <div class="portal-container">
         
-        <a href="https://mathlab-bogura.github.io/Seatplan/" class="action-card">
-            <i class="fa-solid fa-chair card-icon"></i>
-            <h2 class="card-title">Seatplan</h2>
-            <p class="card-desc">যেকোনো পরীক্ষার সিট প্ল্যান ও কেন্দ্রের বিস্তারিত ঠিকানা ম্যাপসহ খুঁজুন।</p>
+        <!-- নতুন Math কার্ড -->
+        <a href="https://mathlab-bogura.github.io/Math/" class="action-card">
+            <i class="fa-solid fa-calculator card-icon"></i>
+            <h2 class="card-title">Math</h2>
+            <p class="card-desc">গণিতের বিভিন্ন সমস্যা, শর্টকাট টেকনিক ও প্র্যাকটিস ম্যাটেরিয়াল।</p>
         </a>
 
         <a href="https://mathlab-bogura.github.io/Job/" class="action-card">
             <i class="fa-solid fa-briefcase card-icon"></i>
             <h2 class="card-title">Job Portal</h2>
-            <p class="card-desc">চাকরির পরীক্ষার আবেদনের তথ্য সংরক্ষণ।</p>
+            <p class="card-desc">চাকরির আবেদনের তথ্য সংরক্ষণ।</p>
         </a>
 
         <a href="https://mathlab-bogura.github.io/Resultinput/" class="action-card">
@@ -239,12 +244,20 @@
             <p class="card-desc">পরীক্ষার ফলাফল সহজে ইনপুট করুন এবং নির্ভুলভাবে ডাটা সংরক্ষণ করুন।</p>
         </a>
 
+        <a href="https://mathlab-bogura.github.io/Seatplan/" class="action-card">
+            <i class="fa-solid fa-chair card-icon"></i>
+            <h2 class="card-title">Seatplan</h2>
+            <p class="card-desc">যেকোনো পরীক্ষার সিট প্ল্যান ও কেন্দ্রের বিস্তারিত ঠিকানা ম্যাপসহ খুঁজুন।</p>
+        </a>
+
     </div>
 
+    <!-- মেধা স্বত্ব -->
     <div class="footer">
         © 2026 মেধা স্বত্ব: Mahmudul Hasan
     </div>
 
+    <!-- নোটিশ বারের ডাটা লোড করার স্ক্রিপ্ট -->
     <script>
         const url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTTK5qG19U2iuZbDZh-zeLqstVPZEC5yS5zbwXGRXFteE5Atks5EKqS1wrg2dVwBSPNbGCBl6QHIeOl/pub?gid=0&single=true&output=csv';
 
