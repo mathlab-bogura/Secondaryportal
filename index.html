@@ -100,15 +100,17 @@
         .hero p { font-size: 18px; max-width: 600px; margin: 0 auto; color: #E2E8F0; }
 
         /* মূল পোর্টাল বাটন/কার্ড গ্রিড */
-        .portal-container {
-            flex-grow: 1;
-            padding: 50px 5%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 30px;
-            flex-wrap: wrap;
-        }
+       .portal-container {
+     flex-grow: 1;
+     padding: 30px 5%; /* গ্যাপ কমানোর জন্য প্যাডিং কমানো হয়েছে */
+      display: flex;
+     justify-content: center;
+     align-items: flex-start; /* কার্ডগুলোকে উপরে রাখার জন্য */
+     align-content: flex-start;
+     gap: 30px;
+     flex-wrap: wrap;
+      }
+        
 
         .action-card {
             background-color: var(--white);
